@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 
 
 const animeSchema = new Schema({
-    tital: String,
+    canonicalTitle: String,
     image: String,
     synopsis: String,
     episodeCount: String,

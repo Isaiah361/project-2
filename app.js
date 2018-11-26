@@ -101,4 +101,7 @@ app.use('/', index);
 const user = require('./routes/userRoutes');
 app.use('/', user);
 
+const anime = require('./routes/animeRoutes');
+app.use('/', anime);
+
 module.exports = app;

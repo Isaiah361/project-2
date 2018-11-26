@@ -74,11 +74,13 @@ userRoutes.get('/logout', (req, res, next)=>{
 })
 
 userRoutes.get('/profile', (req, res, next)=>{
+  res.render("User/profile");
     if(!req.user){
         req.flash('error', 'page not available');
         res.redirect('/login')
         return;
     } 
+
 })
 
 
