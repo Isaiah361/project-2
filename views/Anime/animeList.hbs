@@ -1,10 +1,12 @@
 <h1>Anime</h1>
 
-<div>
+<div id="listOfAnime">
 {{#each anime}}
-<div >
-{{!-- <img src="{{this.image}}" alt="anime-poster"/> --}}
-<h2>{{this.canonicalTitle}} </h2>
+<a href="/anime/{{this.id}}">
+<div class="eachAnime centerContent">
+<img src="{{this.attributes.posterImage.original}}" alt="anime-poster"/>
+<h2>{{this.attributes.canonicalTitle}} </h2>
+<h4>Age Rating: {{this.attributes.ageRating}} </h4>
 </div>
 </a>
 {{/each}}
