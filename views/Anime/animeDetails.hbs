@@ -1,6 +1,5 @@
 
-
-<h2>{{oneAnime.attributes.canonicalTitle}} </h2>
+<h2>{{oneAnime.attributes.titles.en}} </h2>
 
 
 <div >
@@ -11,7 +10,38 @@
 <h4>Episode Count: {{oneAnime.attributes.episodeCount}} </h4>
 <h4>Average Rating: {{oneAnime.attributes.averageRating}} </h4>
 <h4>Start Date: {{oneAnime.attributes.startDate}} </h4>
+<h4>End Date: {{oneAnime.attributes.endDate}}</h4>
 <h4>Status: {{oneAnime.attributes.status}} </h4>
+
+
+<form action="/animeAdd" method="POST">
+<label for="titleInput"></label>
+<input id="titleInput" value="{{oneAnime.attributes.titles.en}}" class="display">
+
+<label for="synopsisInpute"></label>
+<input id="synopsisInpute" value="{{oneAnime.attributes.synopsis}}" class="display">
+
+<label for="ageInput"></label>
+<input id="ageInput" value="{{oneAnime.attributes.ageRating}}" class="display">
+
+<label for="episodeInput"></label>
+<input id="episodeInput" value="{{oneAnime.attributes.episodeCount}}" class="display">
+
+<label for="ratingInpute"></label>
+<input id="ratingInpute" value="{{oneAnime.attributes.averageRating}}" class="display">
+
+<label for="startInpute"></label>
+<input id="startInpute" value="{{oneAnime.attributes.startDate}}" class="display">
+
+<label for="endInpute"></label>
+<input id="endInpute" value="{{oneAnime.attributes.endDate}}" class="display">
+
+<label for="statusInpute"></label>
+<input id="statusInpute" value="{{oneAnime.attributes.status}}" class="display">
+
+<button>{{oneAnime.attributes.titles.en}}</button>
+
+</form>
 
 </div>
 

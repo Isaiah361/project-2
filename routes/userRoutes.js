@@ -30,7 +30,7 @@ userRoutes.post("/signup", (req, res, next) => {
             username: username,
             password: hashPass,
             email: req.body.email,
-            avatar: req.body.image,
+            avatar: req.body.avatar,
             bio: req.body.bio,
 
         })

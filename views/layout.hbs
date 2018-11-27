@@ -10,11 +10,13 @@
 <body>
   <a href="/">Home</a>
   <a href="/anime">anime</a>
-  <a href="/signup">Sign Up</a>
+ 
   
-  {{#if User}}
-    <a href="/logout"> Log Out</a>
+  {{#if theUser}}
+    <a href="/profile">Profile</a>
+    <a href="/logout">Log Out</a>
   {{else}}
+    <a href="/signup">Sign Up</a>
     <a href="/login">Log In</a>
   {{/if}}
 

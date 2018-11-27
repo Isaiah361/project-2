@@ -29,4 +29,7 @@ a {
   border: 1px solid black;
   width: 10vw; }
 
+.display {
+  visibility: hidden; }
+
 /*# sourceMappingURL=style.css.map */

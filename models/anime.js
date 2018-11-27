@@ -12,6 +12,7 @@ const animeSchema = new Schema({
     reviewRating: String,
     ageRating: String,
     startDate: String,
+    endDate: String,
     reviews: [{type: Schema.Types.ObjectId}],
   });
 
