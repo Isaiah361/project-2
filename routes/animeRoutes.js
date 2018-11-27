@@ -30,11 +30,11 @@ router.post('/animeAdd',  (req, res, next)=>{
   Anime.findOne({title: req.body.title})
   .then(theAnime =>{
     if(theAnime !== null){
-      res.render('anime/animeDetails', {theAnime})
+      res.redirect(`${theAnime.id}/addReview`)
     }else{
       Anime.create(req.body)
       .then(theAnime =>{
-        res.render('anime/animeDetails', {theAnime})
+        res.redirect(`${theAnime.id}/addReview`)
       })
       .catch((err)=>{
         next(err)
@@ -45,6 +45,21 @@ router.post('/animeAdd',  (req, res, next)=>{
     next(err)
   })
 })
+
+
+router.get('/:id/addReview', (req, res, next)=>{
+  Anime.findById(req.params.id)
+  .then((theAnime)=>{
+    res.render("Anime/animeReview", {theAnime})
+
+  })
+
+  console.log("--------=======-------", req.params.id)
+     
+})
+// router.post('/:id/addReview', (req, res, next)=>{
+  
+// })
 
 
 

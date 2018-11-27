@@ -3,16 +3,16 @@ const Schema   = mongoose.Schema;
 
 
 const animeSchema = new Schema({
-    canonicalTitle: String,
+    title: String,
     image: String,
     synopsis: String,
     episodeCount: String,
     status: String,
     averageRating: String,
-    reviewRating: String,
     ageRating: String,
     startDate: String,
     endDate: String,
+    genres: String,
     reviews: [{type: Schema.Types.ObjectId}],
   });
 

@@ -13,33 +13,38 @@
 <h4>End Date: {{oneAnime.attributes.endDate}}</h4>
 <h4>Status: {{oneAnime.attributes.status}} </h4>
 
+ {{!-- <a href="/{{oneAnime.id}}/addReview">Add Review</a> --}}
+{{!-- <form action="/animeAdd" method="POST">
+
+<button type="submit">Review</button>
+</form>  --}}
 
 <form action="/animeAdd" method="POST">
 <label for="titleInput"></label>
-<input id="titleInput" value="{{oneAnime.attributes.titles.en}}" class="display">
+<input id="titleInput" name="title" value="{{oneAnime.attributes.titles.en}}" class="display">
 
 <label for="synopsisInpute"></label>
-<input id="synopsisInpute" value="{{oneAnime.attributes.synopsis}}" class="display">
+<input id="synopsisInpute" name="synopsis" value="{{oneAnime.attributes.synopsis}}" class="display">
 
 <label for="ageInput"></label>
-<input id="ageInput" value="{{oneAnime.attributes.ageRating}}" class="display">
+<input id="ageInput" name="ageRating" value="{{oneAnime.attributes.ageRating}}" class="display">
 
 <label for="episodeInput"></label>
-<input id="episodeInput" value="{{oneAnime.attributes.episodeCount}}" class="display">
+<input id="episodeInput" name="episodeCount" value="{{oneAnime.attributes.episodeCount}}" class="display">
 
 <label for="ratingInpute"></label>
-<input id="ratingInpute" value="{{oneAnime.attributes.averageRating}}" class="display">
+<input id="ratingInpute" name="averageRating" value="{{oneAnime.attributes.averageRating}}" class="display">
 
 <label for="startInpute"></label>
-<input id="startInpute" value="{{oneAnime.attributes.startDate}}" class="display">
+<input id="startInpute" name="startDate" value="{{oneAnime.attributes.startDate}}" class="display">
 
 <label for="endInpute"></label>
-<input id="endInpute" value="{{oneAnime.attributes.endDate}}" class="display">
+<input id="endInpute" name="endDate" value="{{oneAnime.attributes.endDate}}" class="display">
 
 <label for="statusInpute"></label>
-<input id="statusInpute" value="{{oneAnime.attributes.status}}" class="display">
+<input id="statusInpute" name="status" value="{{oneAnime.attributes.status}}" class="display">
 
-<button>{{oneAnime.attributes.titles.en}}</button>
+<button type="submit">Submit</button>
 
 </form>
 
