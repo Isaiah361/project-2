@@ -34,7 +34,11 @@ a {
   visibility: hidden; }
 
 .bgPrimary {
-  background-color: dimgrey !important; }
+  background-color: dimgrey !important;
+  border-radius: 9px; }
+
+.border {
+  border-radius: 9px; }
 
 .container {
   display: flex;
