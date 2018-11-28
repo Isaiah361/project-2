@@ -6,12 +6,12 @@
 
 <img class= "animeImg" src="{{oneAnime.attributes.posterImage.original}}" alt="anime-poster"/>
 <p>{{oneAnime.attributes.synopsis}}</p>
-<h4>Age Rating: {{oneAnime.attributes.ageRating}} </h4>
-<h4>Episode Count: {{oneAnime.attributes.episodeCount}} </h4>
-<h4>Average Rating: {{oneAnime.attributes.averageRating}} </h4>
-<h4>Start Date: {{oneAnime.attributes.startDate}} </h4>
-<h4>End Date: {{oneAnime.attributes.endDate}}</h4>
-<h4>Status: {{oneAnime.attributes.status}} </h4>
+<h6>Age Rating: {{oneAnime.attributes.ageRating}} </h6>
+<h6>Episode Count: {{oneAnime.attributes.episodeCount}} </h6>
+<h6>Average Rating: {{oneAnime.attributes.averageRating}} </h6>
+<h6>Start Date: {{oneAnime.attributes.startDate}} </h6>
+<h6>End Date: {{oneAnime.attributes.endDate}}</h6>
+<h6>Status: {{oneAnime.attributes.status}} </h6>
 
  {{!-- <a href="/{{oneAnime.id}}/addReview">Add Review</a> --}}
 {{!-- <form action="/animeAdd" method="POST">
@@ -44,9 +44,16 @@
 <label for="statusInpute"></label>
 <input id="statusInpute" name="status" value="{{oneAnime.attributes.status}}" class="display">
 
-<button type="submit">Submit</button>
+{{#if theUser}}
+  <div>
+  <button type="submit" class="btn btn-primary">Submit a Review</button>
+  </div>
+{{else}}
+
+{{/if}}
 
 </form>
-
+<br>
+<h3>Reviews</h3>
 </div>
 

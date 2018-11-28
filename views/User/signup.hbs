@@ -1,29 +1,63 @@
-<h1>Register A New Account</h1>
 
-<form action="/signup" method="POST">
-<div>
-<label>Email</label>
-<input type="text" name="email" required>
-</div>
-<div>
-<label>Username</label>
-<input type="text" name="username" required>
-</div>
-<div>
-<label>Password</label>
-<input type="text" name="password" required>
-</div>
-<div>
-<label>Avatar</label>
-<input type="text" name="avatar" >
-</div>
-<div>
-<label>Bio</label>
-<textarea name="bio" cols="30" rows="10"></textarea>
-</div>
 
- <button>Create Account</button>
-</form>
+
+<section class="testimonial py-5 signup" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 py-5 bgPrimary text-white text-center ">
+                <div class=" ">
+                    <div class="card-body">
+                        <img src="http://manga-anime.pl/wordpress/wp-content/uploads/2016/01/join-us.jpg" style="width:70%">
+                        <h2 class="py-3">Register New Account</h2>
+                        <p>REGISTER AND CHECK OUT SOME DOPE ANIME</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 py-5 border">
+                <h4 class="pb-4">Please fill with your details</h4>
+                <form class="sign" action="/signup" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                        <div class="form-group col-md-6">
+                          <input id="username" name="username" placeholder="Username" class="form-control" type="text">
+                        </div>
+                      </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="password" id="Mobile No." name="password" placeholder="Password" class="form-control" required="required" type="text">
+                        </div>
+                          <div class="form-group col-md-6">
+                            <input id="Mobile No." name="avatar" placeholder="Avatar URL" class="form-control" required="required" type="text">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                                  <textarea id="comment" name="bio" cols="40" rows="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                  <label class="form-check-label" for="invalidCheck2">
+                                    <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
+                                  </label>
+                                </div>
+                              </div>
+                    
+                          </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <button class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 {{#if message}}
 <h4>{{message}}</h4>

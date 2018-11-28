@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const axios  = require('axios');
 const Anime = require("../models/Anime");
+const Reviews = require("../models/Reviews");
 
 
 router.get("/anime", (req, res, next)=>{
@@ -14,6 +15,7 @@ router.get("/anime", (req, res, next)=>{
     next(err)
   })
 })
+
 
 router.get('/anime/:id', (req, res, next)=>{
   axios.get(`https://kitsu.io/api/edge/anime/${req.params.id}`)
@@ -50,16 +52,35 @@ router.post('/animeAdd',  (req, res, next)=>{
 router.get('/:id/addReview', (req, res, next)=>{
   Anime.findById(req.params.id)
   .then((theAnime)=>{
-    res.render("Anime/animeReview", {theAnime})
+    res.render("Anime/animeReview", {theAnime: theAnime})
 
   })
 
-  console.log("--------=======-------", req.params.id)
+  // console.log("--------=======-------", req.params.id)
      
 })
-// router.post('/:id/addReview', (req, res, next)=>{
+router.post('/:id/addReview', (req, res, next)=>{
+  console.log("--------=======-------", req.params.id)
   
-// })
+  const theReview = new Reviews({
+    rating: req.body.rating,
+    review: req.body.review
+  })
+  theReview.save() 
+  Anime.findById(req.params.id).populate('author')
+  .then((theAnime)=>{
+    theAnime.reviews.push(theReview)
+    theAnime.save()
+    res.redirect('/anime')
+  })
+  .catch((err)=>{
+    next(err)
+  })
+  // console.log(theAnime)
+  // .then(()=>{
+
+  // })
+})
 
 
 

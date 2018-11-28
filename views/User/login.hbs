@@ -1,17 +1,22 @@
-<h1>Login</h1>
 
-<form action="/login" method="POST">
-
-  <label for="username">Username</label>
-  <input type="text" name="username" required placeholder="Username">
-
-  <label for="password">Password</label>
-  <input type="password" name="password" required placeholder="Password">
-
-  <button>Signin</button>
 
 </form>
-
+ <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="https://i.pinimg.com/originals/02/07/2a/02072a87d479f3b0da5ae73160107b18.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" action="/login" method="POST">
+                <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input class="remeber" type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
   {{#if message }}
     <div>{{ message }}</div>
   {{/if}}

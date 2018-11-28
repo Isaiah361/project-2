@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
 }
 
 a {
@@ -18,7 +19,7 @@ a {
 }
 
 .eachAnime img{
-  border: 1px solid black;
+  border: 1px solid white;
   width: 10vw;
 }
 
@@ -29,9 +30,33 @@ a {
   align-items: center;
 }
 .animeImg{
-  border: 1px solid black;
+  border: 1px solid white;
   width: 10vw;
 }
 .display{
   visibility: hidden;
+}
+
+.bgPrimary {
+  background-color: dimgrey !important;
+}
+.container{
+  display: flex;
+  justify-content: center;
+}
+.card-container.card {
+  max-width: 400px;
+  padding: 40px 40px;
+}
+.profile-img-card {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+.form-control{
+  margin-bottom: 2vh;
 }

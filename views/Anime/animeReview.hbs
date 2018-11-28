@@ -1,9 +1,14 @@
 
-{{theAnime}}
-<form>
-<label>Rating (1-5)</label>
-<input name="rating" type="text">
-<label>Review</label>
-<textarea name="review" cols="30" rows="10"></textarea>
-<button type="submit">Submit</button>
+<h1>{{theAnime.title}}</h1>
+
+<form action="/{{theAnime.id}}/addReview" method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Rating</label>
+    <input name="rating" type="text" class="form-control" id="exampleFormControlInput1" placeholder="1-5">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Review</label>
+    <textarea name="review" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
