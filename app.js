@@ -15,7 +15,7 @@ const passport      = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const flash         = require("connect-flash")
 
-const User          = require('./models/User');
+const User          = require('./models/user');
 
 mongoose
  .connect(process.env.MONGODB_URI, {useMongoClient: true})
