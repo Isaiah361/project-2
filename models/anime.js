@@ -13,7 +13,7 @@ const animeSchema = new Schema({
     startDate: String,
     endDate: String,
     genres: String,
-    reviews: [{type: Schema.Types.ObjectId}],
+    reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
   });
 
 const Anime = mongoose.model('Anime', animeSchema);

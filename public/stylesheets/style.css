@@ -28,7 +28,8 @@ a {
 
 .animeImg {
   border: 1px solid white;
-  width: 10vw; }
+  width: 10vw;
+  margin-bottom: 2vh; }
 
 .display {
   visibility: hidden; }
@@ -59,5 +60,9 @@ a {
 
 .form-control {
   margin-bottom: 2vh; }
+
+.reviews {
+  background-color: dimgrey !important;
+  border-radius: 20px; }
 
 /*# sourceMappingURL=style.css.map */

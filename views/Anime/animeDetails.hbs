@@ -1,17 +1,24 @@
 
-<h2>{{oneAnime.attributes.titles.en}} </h2>
+{{#if fromDB}}
+  <h2>{{oneAnime.title}} </h2>
+{{else}}
+  <h2>{{oneAnime.titles.en}} </h2>
+{{/if}}
 
 
 <div >
-
-<img class= "animeImg" src="{{oneAnime.attributes.posterImage.original}}" alt="anime-poster"/>
-<p>{{oneAnime.attributes.synopsis}}</p>
-<h6>Age Rating: {{oneAnime.attributes.ageRating}} </h6>
-<h6>Episode Count: {{oneAnime.attributes.episodeCount}} </h6>
-<h6>Average Rating: {{oneAnime.attributes.averageRating}} </h6>
-<h6>Start Date: {{oneAnime.attributes.startDate}} </h6>
-<h6>End Date: {{oneAnime.attributes.endDate}}</h6>
-<h6>Status: {{oneAnime.attributes.status}} </h6>
+{{#if fromDB}}
+  <img class= "animeImg" src="{{oneAnime.image}}" alt="anime-poster"/>
+{{else}}
+  <img class= "animeImg" src="{{oneAnime.posterImage.original}}" alt="anime-poster"/>
+{{/if}}
+<p>{{oneAnime.synopsis}}</p>
+<h6>Age Rating: {{oneAnime.ageRating}} </h6>
+<h6>Episode Count: {{oneAnime.episodeCount}} </h6>
+<h6>Average Rating: {{oneAnime.averageRating}} </h6>
+<h6>Start Date: {{oneAnime.startDate}} </h6>
+<h6>End Date: {{oneAnime.endDate}}</h6>
+<h6>Status: {{oneAnime.status}} </h6>
 
  {{!-- <a href="/{{oneAnime.id}}/addReview">Add Review</a> --}}
 {{!-- <form action="/animeAdd" method="POST">
@@ -21,28 +28,31 @@
 
 <form action="/animeAdd" method="POST">
 <label for="titleInput"></label>
-<input id="titleInput" name="title" value="{{oneAnime.attributes.titles.en}}" class="display">
+<input id="titleInput" name="title" value="{{oneAnime.titles.en}}" class="display">
+
+<label for="imageInpute"></label>
+<input id="imageInput" name="image" value="{{oneAnime.posterImage.original}}" class="display">
 
 <label for="synopsisInpute"></label>
-<input id="synopsisInpute" name="synopsis" value="{{oneAnime.attributes.synopsis}}" class="display">
+<input id="synopsisInpute" name="synopsis" value="{{oneAnime.synopsis}}" class="display">
 
 <label for="ageInput"></label>
-<input id="ageInput" name="ageRating" value="{{oneAnime.attributes.ageRating}}" class="display">
+<input id="ageInput" name="ageRating" value="{{oneAnime.ageRating}}" class="display">
 
 <label for="episodeInput"></label>
-<input id="episodeInput" name="episodeCount" value="{{oneAnime.attributes.episodeCount}}" class="display">
+<input id="episodeInput" name="episodeCount" value="{{oneAnime.episodeCount}}" class="display">
 
 <label for="ratingInpute"></label>
-<input id="ratingInpute" name="averageRating" value="{{oneAnime.attributes.averageRating}}" class="display">
+<input id="ratingInpute" name="averageRating" value="{{oneAnime.averageRating}}" class="display">
 
 <label for="startInpute"></label>
-<input id="startInpute" name="startDate" value="{{oneAnime.attributes.startDate}}" class="display">
+<input id="startInpute" name="startDate" value="{{oneAnime.startDate}}" class="display">
 
 <label for="endInpute"></label>
-<input id="endInpute" name="endDate" value="{{oneAnime.attributes.endDate}}" class="display">
+<input id="endInpute" name="endDate" value="{{oneAnime.endDate}}" class="display">
 
 <label for="statusInpute"></label>
-<input id="statusInpute" name="status" value="{{oneAnime.attributes.status}}" class="display">
+<input id="statusInpute" name="status" value="{{oneAnime.status}}" class="display">
 
 {{#if theUser}}
   <div>
@@ -55,6 +65,12 @@
 </form>
 <br>
 <h3>Reviews</h3>
-
+{{#each oneAnime.reviews}}
+<div class="reviews">
+  {{this.author}}
+  <h5>{{this.review}}</h5>
+  <h6>Ratting: {{this.rating}}</h6>
+  </div>
+{{/each}}
 </div>
 

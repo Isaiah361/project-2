@@ -18,10 +18,27 @@ router.get("/anime", (req, res, next)=>{
 
 
 router.get('/anime/:id', (req, res, next)=>{
+  
   axios.get(`https://kitsu.io/api/edge/anime/${req.params.id}`)
   .then((response)=>{
-    
-    res.render('Anime/animeDetails', {oneAnime: response.data.data})
+    Anime.findOne({title: response.data.data.attributes.titles.en}).populate('reviews')
+    .then(animeFromDB => {
+      data = {
+        oneAnime: response.data.data.attributes,
+        fromDB: false
+      }
+      if(animeFromDB !== null) {
+        console.log("NOOOOOOOOOOOT NULLLLLLLL!!!!!!!!!!!")
+        data.oneAnime = animeFromDB;
+        data.fromDB = true;
+      } 
+      console.log("------------------------- ", animeFromDB);
+      console.log("-----==================== ", response.data.data.attributes.titles.en, data.fromDB);
+      res.render('Anime/animeDetails', data)
+    })
+    .catch(err => {
+      next(err);
+    })    
   })
   .catch((err)=>{
     next(err)
@@ -62,24 +79,28 @@ router.get('/:id/addReview', (req, res, next)=>{
 router.post('/:id/addReview', (req, res, next)=>{
   console.log("--------=======-------", req.params.id)
   
-  const theReview = new Reviews({
+  // const theReview = new Reviews({
+  //   rating: req.body.rating,
+  //   review: req.body.review
+  // })
+  Reviews.create({
+    author: req.user._id,
     rating: req.body.rating,
     review: req.body.review
   })
-  theReview.save() 
-  Anime.findById(req.params.id).populate('author')
-  .then((theAnime)=>{
-    theAnime.reviews.push(theReview)
-    theAnime.save()
-    res.redirect('/anime')
+  .then(createdReview => {
+    console.log(">>>>>>>>>>>>>>>>>>>>>> ", createdReview)
+    Anime.findByIdAndUpdate(req.params.id, {$push: {reviews: createdReview._id}})
+      .then(updatedAnime => {
+        console.log("******************** ", updatedAnime);
+        res.redirect('/anime')
+      })
+      .catch(err => {
+        next(err);
+      })
+  }).catch(err => {
+    next(err);
   })
-  .catch((err)=>{
-    next(err)
-  })
-  // console.log(theAnime)
-  // .then(()=>{
-
-  // })
 })
 
 
