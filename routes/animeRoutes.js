@@ -21,7 +21,7 @@ router.get('/anime/:id', (req, res, next)=>{
   
   axios.get(`https://kitsu.io/api/edge/anime/${req.params.id}`)
   .then((response)=>{
-    console.log("....................", response.data.data.attributes)
+    // console.log("....................", response.data.data.attributes)
     theTitle = response.data.data.attributes.titles.en
     if(!response.data.data.attributes.titles.en) {
       theTitle = response.data.data.attributes.titles.en_jp
@@ -53,15 +53,15 @@ router.get('/anime/:id', (req, res, next)=>{
 })
 
 router.post('/animeAdd',  (req, res, next)=>{
-  console.log("the title of the anime to add review to (((((((((((((((( ", req.body.title)
+  // console.log("the title of the anime to add review to (((((((((((((((( ", req.body.title)
   Anime.findOne({title: req.body.title})
   .then(theAnime =>{
-    console.log("anime info before redirect to add review !!!!!!!!!!!!!!!!!!!!!!!", theAnime);
+    // console.log("anime info before redirect to add review !!!!!!!!!!!!!!!!!!!!!!!", theAnime);
     if(theAnime !== null){
-      console.log("the anime is NOT null ???????????? ", theAnime);
+      // console.log("the anime is NOT null ???????????? ", theAnime);
       res.redirect(`/${theAnime._id}/addReview`)
     } else {
-      console.log("the anime IS null &&&&&&&&&&&&&&&&& ", theAnime);
+      // console.log("the anime IS null &&&&&&&&&&&&&&&&& ", theAnime);
       Anime.create(req.body)
       .then(theAnime =>{
         res.redirect(`/${theAnime._id}/addReview`)
@@ -101,15 +101,15 @@ router.post('/:id/addReview', (req, res, next)=>{
     review: req.body.review
   })
   .then(createdReview => {
-    console.log(">>>>>>>>>>>>>>>>>>>>>> ", createdReview);
+    // console.log(">>>>>>>>>>>>>>>>>>>>>> ", createdReview);
     Anime.findById(req.params.id) 
       .then(animeFromDB => {
-        console.log("anime prior to pushing review ^^^^^^^^^^^^^^^^^ ", animeFromDB);
+        // console.log("anime prior to pushing review ^^^^^^^^^^^^^^^^^ ", animeFromDB);
         animeFromDB.reviews.push(createdReview._id)
-        console.log("******************** ", animeFromDB);
+        // console.log("******************** ", animeFromDB);
         animeFromDB.save()
         .then(updatedAnime => {
-          console.log("############################# ", updatedAnime);
+          // console.log("############################# ", updatedAnime);
           res.redirect('/anime')
         })
         .catch(err => {

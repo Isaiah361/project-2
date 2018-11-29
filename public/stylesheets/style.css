@@ -6,6 +6,9 @@ body {
 a {
   color: #00B7FF; }
 
+p {
+  color: white; }
+
 #listOfAnime {
   display: flex;
   flex-flow: row wrap;
@@ -62,7 +65,7 @@ a {
   margin-bottom: 2vh; }
 
 .reviews {
-  background-color: dimgrey !important;
+  background-color: gray !important;
   border-radius: 20px; }
 
 /*# sourceMappingURL=style.css.map */

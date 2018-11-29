@@ -5,7 +5,11 @@
 <a href="/anime/{{this.id}}">
 <div class="eachAnime centerContent">
 <img src="{{this.attributes.posterImage.original}}" alt="anime-poster"/>
+{{#if this.attributes.titles.en}}
 <h5>{{this.attributes.titles.en}} </h5>
+{{else}}
+<h5>{{this.attributes.titles.en_jp}} </h5>
+{{/if}}
 <h6>Age Rating: {{this.attributes.ageRating}} </h6>
 </div>
 </a>

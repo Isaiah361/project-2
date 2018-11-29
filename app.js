@@ -109,4 +109,6 @@ app.use('/', user);
 const anime = require('./routes/animeRoutes');
 app.use('/', anime);
 
+const reviews = require('./routes/reviewRoutes');
+app.use('/', reviews);
 module.exports = app;
