@@ -12,7 +12,6 @@ const animeSchema = new Schema({
     ageRating: String,
     startDate: String,
     endDate: String,
-    me: Boolean,
     genres: String,
     reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
   });

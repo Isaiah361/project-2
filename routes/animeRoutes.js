@@ -50,7 +50,7 @@ router.get('/anime/:id', (req, res, next)=>{
         })
       }
 
-      console.log('hi', req.user, animeFromDB)
+      // console.log('hi', req.user, animeFromDB)
       // console.log("------------------------- ", animeFromDB);
       // console.log("-----==================== ", response.data.data.attributes.titles.en, data.fromDB);
       res.render('Anime/animeDetails', data)
@@ -94,7 +94,7 @@ router.post('/animeAdd',  (req, res, next)=>{
 router.get('/:id/addReview', (req, res, next)=>{
   Anime.findById(req.params.id)
   .then((theAnime)=>{
-    console.log("id for the anime prior to adding review <<<<<<<<<<<<<<<<<<<<<<< ", theAnime);
+    // console.log("id for the anime prior to adding review <<<<<<<<<<<<<<<<<<<<<<< ", theAnime);
     res.render("Anime/animeReview", {theAnime: theAnime})
 
   })
@@ -103,7 +103,7 @@ router.get('/:id/addReview', (req, res, next)=>{
      
 })
 router.post('/:id/addReview', (req, res, next)=>{
-  console.log("--------=======-------", req.params.id)
+  // console.log("--------=======-------", req.params.id)
   
   // const theReview = new Reviews({
   //   rating: req.body.rating,
