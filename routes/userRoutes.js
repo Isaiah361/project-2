@@ -4,7 +4,8 @@ const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;
 const passport = require("passport");
-
+const Anime = require("../models/anime");
+const Reviews = require("../models/reviews");
 
 userRoutes.get("/signup", (req, res, next) => {
   res.render("User/signup");
@@ -74,15 +75,21 @@ userRoutes.get('/logout', (req, res, next)=>{
 })
 
 userRoutes.get('/profile', (req, res, next)=>{
-    res.render("User/profile", {theUser: req.theUser});
-    
-    // User.findById(req.params.id)
-    // .then((theUser)=>{ 
+    if(!req.user){
+        req.flash('error', 'page not available');
+        res.redirect('/login')
+        return;
+    } else{
+    Anime.find({addedBy: req.user._id})
+    .then((animeReview)=>{
         
-    // })
-    // .catch((err)=>{
-    //     next(err)
-    // })
+        res.render('User/profile', {user: req.user, anime: animeReview});
+
+    })
+    .catch((err)=>{
+      next(err);
+    })
+ }
 })
 
 

@@ -2,7 +2,7 @@
 {{#if fromDB}}
   <h2>{{oneAnime.title}} </h2>
 {{else}}
-  <h2>{{oneAnime.titles.en}} </h2>
+  <h2>{{theTitle}} </h2>
 {{/if}}
 
 
@@ -28,7 +28,7 @@
 
 <form action="/animeAdd" method="POST">
 <label for="titleInput"></label>
-<input id="titleInput" name="title" value="{{oneAnime.titles.en}}" class="display">
+<input id="titleInput" name="title" value="{{theTitle}}" class="display">
 
 <label for="imageInpute"></label>
 <input id="imageInput" name="image" value="{{oneAnime.posterImage.original}}" class="display">
