@@ -39,22 +39,24 @@ router.get('/anime/:id', (req, res, next)=>{
         data.oneAnime = animeFromDB;
         data.fromDB = true;
         data.user = req.user
-      } 
-      if(req.user){
-        animeFromDB.reviews.forEach((anime)=>{
-          if( anime.author == req.user.username ) {
-            anime.me = true
-          } else  {
-            anime.me = false
-          }
-        })
-      }
 
+        if(req.user){
+          animeFromDB.reviews.forEach((anime)=>{
+            if( anime.author == req.user.username ) {
+              anime.me = true
+            } else  {
+              anime.me = false
+            }
+          })
+        }
+
+
+      }  
       // console.log('hi', req.user, animeFromDB)
       // console.log("------------------------- ", animeFromDB);
       // console.log("-----==================== ", response.data.data.attributes.titles.en, data.fromDB);
+      
       res.render('Anime/animeDetails', data)
-
 
     })
     .catch(err => {
