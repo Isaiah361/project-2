@@ -58,6 +58,8 @@
   <div>
   <button type="submit" class="btn btn-primary">Submit a Review</button>
   </div>
+
+  {{theUser.username}}
 {{else}}
 
 {{/if}}
@@ -65,21 +67,21 @@
 </form>
 <br>
 <h3>Reviews</h3>
+
+
 {{#each oneAnime.reviews}}
 <div class="reviews">
   <h4>{{this.author}}</h4>
   <p>{{this.review}}</p>
   <h6>Ratting: {{this.rating}}</h6>
   </div>
-
-{{#if canEdit}}
- 
-{{else}}
-<a href="/anime/{{this._id}}/edit"> <button class="btn btn-primary">Edit this Review</button></a>
+{{!-- {{theUser.username this.author}} --}}
+{{#if this.me}}
+ <a href="/anime/{{this._id}}/edit"> <button class="btn btn-primary">Edit this Review</button></a>
  <form action="/anime/{{this._id}}/delete" method="POST">
     <button>Delete This</button>
 </form>
-{{/if}}
+{{/if}} 
 
 {{/each}}
 

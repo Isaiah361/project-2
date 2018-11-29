@@ -5,15 +5,16 @@ const Reviews = require("../models/reviews");
 
 
 router.get('/anime/:theIdThing/edit',isLoggedIn, (req, res, next)=>{
-
   Reviews.findById(req.params.theIdThing)
   .then((theReview)=>{
     canEdit = false
-    if(req.user){
-    if(String(req.user._id === String(theReview.author))){
+    // if(req.user){
+      console.log(req.user, theReview )
+    if(String(req.user.username === String(theReview.author))){
+      console.log(req.user, theReview )
       canEdit = true
-    }
-  }
+     }
+  // }
    res.render('Anime/editReview', {theReview: theReview, canEdit: canEdit})
   })
   .catch((err)=>{
