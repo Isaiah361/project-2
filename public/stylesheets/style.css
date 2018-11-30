@@ -79,7 +79,9 @@ p {
   background: #fff; }
 
 .profile-img {
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  justify-content: flex-start; }
 
 .profile-img img {
   width: 70%;

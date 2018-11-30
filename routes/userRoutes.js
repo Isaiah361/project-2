@@ -86,7 +86,6 @@ userRoutes.get('/profile', (req, res, next)=>{
             Anime.find()
             .then((listOfAnime)=>{
                 res.render('User/profile', {listOfAnime, theUser})
-                
             })
             .catch((err)=>{
                 next(err)
