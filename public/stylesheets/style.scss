@@ -74,12 +74,13 @@ p{
   background-color: gray !important;
   border-radius: 20px;
 }
-.reviews{
-  
- 
-}
 .coolBackground{
-  background-image: url("/images/fist.png") !important;
+  background-image: url("/images/One_punch_man_saitama.png") ;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 284px;
 }
 .emp-profile{
   padding: 3%;
@@ -175,4 +176,9 @@ p{
 .profile-tab p{
   font-weight: 600;
   color: #0062cc;
+}
+
+.anime-thing{
+  margin: 0px 783px;
+  display: block;
 }
