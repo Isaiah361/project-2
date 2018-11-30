@@ -113,7 +113,7 @@
 <br>
 <h3>Reviews</h3>
 
-<div>
+
 {{#each oneAnime.reviews}}
 <div class="oneReview">
 <div>
@@ -121,19 +121,20 @@
   <p>{{this.review}}</p>
   <h6>Ratting: {{this.rating}}</h6>
 </div>
+<br>
 {{!-- {{theUser.username this.author}} --}}
 {{#if this.me}}
-<div>
+
  <a href="/anime/{{this._id}}/edit"> <button class="btn btn-primary">Edit this Review</button></a>
  <form action="/anime/{{this._id}}/delete" method="POST">
     <button class="btn btn-danger">Delete This</button>
 </form>
 </div>
-</div>
+
 {{/if}} 
 
 {{/each}}
-</div>
+
 
 </div>
 
