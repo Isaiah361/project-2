@@ -80,15 +80,36 @@ userRoutes.get('/profile', (req, res, next)=>{
         res.redirect('/login')
         return;
     } else{
-    Anime.find({addedBy: req.user._id})
-    .then((animeReview)=>{
-        
-        res.render('User/profile', {user: req.user, anime: animeReview});
+        User.findById(req.user._id)
+        .populate('favAnime')
+        .then((theUser)=>{
+            Anime.find()
+            .then((listOfAnime)=>{
+                res.render('User/profile', {listOfAnime, theUser})
+                
+            })
+            .catch((err)=>{
+                next(err)
+            })
+        })
+        .catch((err)=>{
+            next(err)
+        })
 
-    })
-    .catch((err)=>{
-      next(err);
-    })
+
+
+
+
+
+    // Anime.find({addedBy: req.user._id})
+    // .then((animeReview)=>{
+        
+    //     res.render('User/profile', {user: req.user, anime: animeReview});
+
+    // })
+    // .catch((err)=>{
+    //   next(err);
+    // })
  }
 })
 

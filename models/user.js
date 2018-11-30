@@ -8,7 +8,7 @@ const userSchema = new Schema(
   email: String,
   avatar: String,
   bio: String,
-  favAnime: [{type: Schema.Types.ObjectId}],
+  favAnime: [{type: Schema.Types.ObjectId, ref: 'Anime'}],
   favList: [{type: Schema.Types.ObjectId}],
   reviews: [{type: Schema.Types.ObjectId, ref: 'review'}],
 }, {

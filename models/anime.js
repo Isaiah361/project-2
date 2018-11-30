@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 
 const animeSchema = new Schema({
     title: String,
+    idApi: String,
     image: String,
     synopsis: String,
     episodeCount: String,

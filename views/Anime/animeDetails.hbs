@@ -25,8 +25,7 @@
 
 <button type="submit">Review</button>
 </form>  --}}
-
-<form action="/animeAdd" method="POST">
+<form action="/addToFav" method="POST">
 <label for="titleInput"></label>
 <input id="titleInput" name="title" value="{{theTitle}}" class="display">
 
@@ -54,7 +53,56 @@
 <label for="statusInpute"></label>
 <input id="statusInpute" name="status" value="{{oneAnime.status}}" class="display">
 
+<label for="idInpute"></label>
+<input id="idInpute" name="idApi" value="{{oneAnime.id}}" class="display">
+
 {{#if theUser}}
+
+  <div>
+  <button type="submit" class="btn btn-primary">Add To Fav</button>
+  </div>
+{{else}}
+
+{{/if}}
+
+</form>
+
+
+
+
+
+
+
+<form action="/animeAdd" method="POST">
+<label for="titleInput"></label>
+<input id="titleInput" name="title" value="{{theTitle}}" class="display">
+
+<label for="imageInpute"></label>
+<input id="imageInput" name="image" value="{{oneAnime.attributes.posterImage.original}}" class="display">
+
+<label for="synopsisInpute"></label>
+<input id="synopsisInpute" name="synopsis" value="{{oneAnime.attributes.synopsis}}" class="display">
+
+<label for="ageInput"></label>
+<input id="ageInput" name="ageRating" value="{{oneAnime.attributes.ageRating}}" class="display">
+
+<label for="episodeInput"></label>
+<input id="episodeInput" name="episodeCount" value="{{oneAnime.attributes.episodeCount}}" class="display">
+
+<label for="ratingInpute"></label>
+<input id="ratingInpute" name="averageRating" value="{{oneAnime.attributes.averageRating}}" class="display">
+
+<label for="startInpute"></label>
+<input id="startInpute" name="startDate" value="{{oneAnime.attributes.startDate}}" class="display">
+
+<label for="endInpute"></label>
+<input id="endInpute" name="endDate" value="{{oneAnime.attributes.endDate}}" class="display">
+
+<label for="statusInpute"></label>
+<input id="statusInpute" name="status" value="{{oneAnime.attributes.status}}" class="display">
+
+{{#if theUser}}
+
   <div>
   <button type="submit" class="btn btn-primary">Submit a Review</button>
   </div>

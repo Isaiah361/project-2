@@ -92,6 +92,44 @@ router.post('/animeAdd',  (req, res, next)=>{
   })
 })
 
+router.post('/addToFav',  (req, res, next)=>{
+  // console.log("the title of the anime to add review to (((((((((((((((( ", req.body.title)
+  Anime.findOne({title: req.body.title})
+  .then(theAnime =>{
+    if(theAnime !== null){
+      user = req.user
+      user.favAnime.push(theAnime.id)
+      user.save()
+      .then(()=>{
+        res.redirect(`/anime`)
+      })
+      .catch((err)=>{
+        next(err)
+      })
+    } else {
+      console.log(req.user, theAnime, "===================")
+      user = req.user
+      // console.log("the anime IS null &&&&&&&&&&&&&&&&& ", theAnime);
+      Anime.create(req.body)
+      .then(theAnime =>{
+        user.favAnime.push(theAnime._id)
+        user.save()
+        .then(()=>{
+          res.redirect(`/anime`)
+        })
+        .catch((err)=>{
+          next(err)
+        })
+      })
+      .catch((err)=>{
+        next(err)
+      })
+    }
+  })
+  .catch((err)=>{
+    next(err)
+  })
+})
 
 router.get('/:id/addReview', (req, res, next)=>{
   Anime.findById(req.params.id)
