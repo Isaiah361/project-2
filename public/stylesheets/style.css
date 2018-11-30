@@ -64,7 +64,9 @@ p {
 .form-control {
   margin-bottom: 2vh; }
 
-.reviews {
+.oneReview {
+  display: flex;
+  justify-content: space-between;
   background-color: gray !important;
   border-radius: 20px; }
 

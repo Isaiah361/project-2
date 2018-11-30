@@ -109,12 +109,11 @@
 {{else}}
 
 {{/if}}
-
 </form>
 <br>
 <h3>Reviews</h3>
 
-
+<div class="oneReview">
 {{#each oneAnime.reviews}}
 <div class="reviews">
   <h4>{{this.author}}</h4>
@@ -123,13 +122,15 @@
   </div>
 {{!-- {{theUser.username this.author}} --}}
 {{#if this.me}}
+<div>
  <a href="/anime/{{this._id}}/edit"> <button class="btn btn-primary">Edit this Review</button></a>
  <form action="/anime/{{this._id}}/delete" method="POST">
-    <button>Delete This</button>
+    <button class="btn btn-danger">Delete This</button>
 </form>
+</div>
 {{/if}} 
 
 {{/each}}
-
+</div>
 </div>
 
