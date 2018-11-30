@@ -113,13 +113,14 @@
 <br>
 <h3>Reviews</h3>
 
-<div class="oneReview">
+<div>
 {{#each oneAnime.reviews}}
-<div class="reviews">
+<div class="oneReview">
+<div>
   <h4>{{this.author}}</h4>
   <p>{{this.review}}</p>
   <h6>Ratting: {{this.rating}}</h6>
-  </div>
+</div>
 {{!-- {{theUser.username this.author}} --}}
 {{#if this.me}}
 <div>
@@ -128,9 +129,11 @@
     <button class="btn btn-danger">Delete This</button>
 </form>
 </div>
+</div>
 {{/if}} 
 
 {{/each}}
 </div>
+
 </div>
 

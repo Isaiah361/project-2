@@ -68,7 +68,8 @@ p {
   display: flex;
   justify-content: space-between;
   background-color: gray !important;
-  border-radius: 20px; }
+  border-radius: 20px;
+  margin-bottom: 1vh; }
 
 .coolBackground {
   background-image: url("/images/One_punch_man_saitama.png");
